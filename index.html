@@ -80,15 +80,35 @@
   .warning::before { content: "⚠️ "; }
   
 
-  .quiz-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 14px 0; }
-  .quiz-card { border: 1px solid #c8d8f0; border-radius: 6px; padding: 12px 14px; background: #f8fbff; page-break-inside: avoid; }
-  .quiz-card h4 { margin-top: 0; color: #1a2744; font-style: normal; }
+  .quiz-toolbar { display: flex; align-items: center; justify-content: space-between; gap: 12px; border: 1px solid #c8d8f0; border-radius: 8px; padding: 12px 14px; margin: 12px 0 16px; background: linear-gradient(135deg, #f8fbff 0%, #eef6ff 100%); }
+  .quiz-score { font-weight: bold; color: #1a2744; }
+  .quiz-reset { border: 1px solid #1a2744; border-radius: 6px; background: #1a2744; color: #fff; padding: 7px 12px; font-family: Georgia, serif; font-size: 9pt; cursor: pointer; }
+  .quiz-reset:hover { background: #2c4a7a; }
+  .quiz-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 14px 0; }
+  .quiz-card { border: 1px solid #c8d8f0; border-radius: 8px; padding: 14px 16px; background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%); box-shadow: 0 8px 22px rgba(26, 39, 68, 0.07); page-break-inside: avoid; }
+  .quiz-card h4 { margin-top: 0; color: #1a2744; font-style: normal; font-size: 11pt; border-bottom: 1px solid #d8e6f8; padding-bottom: 7px; }
   .quiz-card ol { padding-left: 18px; }
   .quiz-card li { margin-bottom: 10px; }
   details.answer { border-left: 3px solid #4a9eff; padding-left: 8px; margin: 6px 0 12px; color: #2c4a7a; }
   details.answer summary { cursor: pointer; font-weight: bold; font-size: 9pt; color: #1a4488; }
-  .quiz-options { list-style: upper-alpha; padding-left: 18px; margin-top: 4px; }
-  .quiz-options li { margin-bottom: 2px; }
+  .quiz-options { list-style: upper-alpha; padding-left: 18px; margin-top: 6px; }
+  .quiz-options li { margin-bottom: 4px; }
+  .js-enabled .quiz-options { list-style: none; padding-left: 0; }
+  .js-enabled .interactive-question { border-bottom: 1px solid #edf3fb; padding-bottom: 10px; }
+  .js-enabled .interactive-question:last-child { border-bottom: 0; }
+  .quiz-option-btn { width: 100%; display: flex; align-items: flex-start; gap: 8px; text-align: left; border: 1px solid #c8d8f0; border-radius: 7px; background: #fff; color: #1a1a1a; padding: 7px 9px; font-family: Georgia, serif; font-size: 9.5pt; line-height: 1.35; cursor: pointer; transition: border-color 0.15s ease, background 0.15s ease, transform 0.15s ease; }
+  .quiz-option-btn:hover { border-color: #4a9eff; background: #f2f7ff; transform: translateY(-1px); }
+  .quiz-option-btn.selected { border-color: #1a2744; background: #eef4ff; }
+  .quiz-option-btn.correct { border-color: #2f8f46; background: #edf9f0; color: #145a24; }
+  .quiz-option-btn.incorrect { border-color: #c74949; background: #fff0f0; color: #8a1f1f; }
+  .option-letter { flex: 0 0 22px; height: 22px; border-radius: 50%; background: #e8f0ff; color: #1a4488; display: inline-flex; align-items: center; justify-content: center; font-weight: bold; font-size: 8.5pt; }
+  .quiz-option-btn.correct .option-letter { background: #2f8f46; color: #fff; }
+  .quiz-option-btn.incorrect .option-letter { background: #c74949; color: #fff; }
+  .quiz-feedback { display: none; border-radius: 7px; padding: 8px 10px; margin: 7px 0 4px; font-size: 9pt; }
+  .quiz-feedback.show { display: block; }
+  .quiz-feedback.correct { background: #edf9f0; border: 1px solid #a7d9b2; color: #145a24; }
+  .quiz-feedback.incorrect { background: #fff4f4; border: 1px solid #e3aaaa; color: #8a1f1f; }
+  .js-enabled .interactive-question details.answer { display: none; }
   .model-answer { border-left: 4px solid #1a2744; padding: 8px 12px; margin: 10px 0; background: #f8fbff; page-break-inside: avoid; }
   .model-answer .prompt { font-weight: bold; color: #1a2744; margin-bottom: 4px; }
 
@@ -97,6 +117,9 @@
     .section { padding: 28px 36px; }
     h2.sec-title { font-size: 14pt; margin: -28px -36px 20px -36px; }
     h3 { font-size: 11pt; }
+    .quiz-toolbar { display: none; }
+    .quiz-card { box-shadow: none; }
+    .js-enabled .interactive-question details.answer { display: block; }
   }
 </style>
 </head>
@@ -1312,6 +1335,110 @@
     <li><strong>Long product life</strong> → always look for aftermarkets (parts + services).</li>
   </ol>
 </div>
+
+<script>
+  document.documentElement.classList.add('js-enabled');
+
+  (function () {
+    const letters = ['A', 'B', 'C', 'D'];
+    const quizSection = Array.from(document.querySelectorAll('.section')).find((section) =>
+      section.querySelector('.sec-title') && section.querySelector('.sec-title').textContent.includes('Quiz Practice')
+    );
+
+    if (!quizSection) return;
+
+    const score = document.createElement('div');
+    score.className = 'quiz-toolbar';
+    score.innerHTML = '<div><strong>Interactive quiz</strong><br><span class="quiz-score">Answered: 0 / 0 | Correct: 0</span></div><button class="quiz-reset" type="button">Reset quiz</button>';
+    const firstHeading = quizSection.querySelector('h3');
+    firstHeading.insertAdjacentElement('afterend', score);
+
+    const scoreText = score.querySelector('.quiz-score');
+    const resetButton = score.querySelector('.quiz-reset');
+    const questions = [];
+
+    quizSection.querySelectorAll('.quiz-card > ol > li').forEach((question) => {
+      const options = question.querySelector('.quiz-options');
+      const answer = question.querySelector('details.answer');
+      if (!options || !answer) return;
+
+      const answerText = answer.textContent
+        .replace(/^Answer\s*/i, '')
+        .replace(/^Suggested answer\s*/i, '')
+        .trim();
+      const match = answerText.match(/^([A-D])\./i);
+      if (!match) return;
+
+      const correctLetter = match[1].toUpperCase();
+      const feedback = document.createElement('div');
+      feedback.className = 'quiz-feedback';
+      question.classList.add('interactive-question');
+      question.dataset.correctLetter = correctLetter;
+      question.dataset.answered = 'false';
+      question.dataset.correct = 'false';
+
+      Array.from(options.children).forEach((option, index) => {
+        const letter = letters[index];
+        const text = option.textContent.trim();
+        const button = document.createElement('button');
+        button.className = 'quiz-option-btn';
+        button.type = 'button';
+        button.dataset.letter = letter;
+        button.innerHTML = '<span class="option-letter">' + letter + '</span><span>' + text + '</span>';
+        option.textContent = '';
+        option.appendChild(button);
+
+        button.addEventListener('click', () => {
+          const isCorrect = letter === correctLetter;
+          question.dataset.answered = 'true';
+          question.dataset.correct = isCorrect ? 'true' : 'false';
+
+          question.querySelectorAll('.quiz-option-btn').forEach((btn) => {
+            btn.classList.remove('selected', 'correct', 'incorrect');
+            if (btn.dataset.letter === correctLetter) btn.classList.add('correct');
+          });
+
+          button.classList.add('selected');
+          if (!isCorrect) button.classList.add('incorrect');
+
+          feedback.className = 'quiz-feedback show ' + (isCorrect ? 'correct' : 'incorrect');
+          feedback.textContent = isCorrect
+            ? 'Correct. ' + answerText.replace(/^[A-D]\.\s*/i, '')
+            : 'Not quite. Correct answer: ' + correctLetter + '. ' + answerText.replace(/^[A-D]\.\s*/i, '');
+
+          updateScore();
+        });
+      });
+
+      answer.insertAdjacentElement('beforebegin', feedback);
+      questions.push(question);
+    });
+
+    function updateScore() {
+      const answered = questions.filter((question) => question.dataset.answered === 'true').length;
+      const correct = questions.filter((question) => question.dataset.correct === 'true').length;
+      scoreText.textContent = 'Answered: ' + answered + ' / ' + questions.length + ' | Correct: ' + correct;
+    }
+
+    resetButton.addEventListener('click', () => {
+      questions.forEach((question) => {
+        question.dataset.answered = 'false';
+        question.dataset.correct = 'false';
+        question.querySelectorAll('.quiz-option-btn').forEach((button) => {
+          button.classList.remove('selected', 'correct', 'incorrect');
+        });
+        const feedback = question.querySelector('.quiz-feedback');
+        if (feedback) {
+          feedback.className = 'quiz-feedback';
+          feedback.textContent = '';
+        }
+      });
+      updateScore();
+    });
+
+    updateScore();
+  })();
+</script>
 
 </body>
 </html>
