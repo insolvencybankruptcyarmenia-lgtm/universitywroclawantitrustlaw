@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Antitrust Law — Exam Study Guide</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Georgia', serif; font-size: 10.5pt; color: #1a1a1a; background: #fff; line-height: 1.55; }
+  
+  .cover { page-break-after: always; display: flex; flex-direction: column; justify-content: center; align-items: center; min-height: 100vh; background: #1a2744; color: #fff; text-align: center; padding: 60px 40px; }
+  .cover h1 { font-size: 32pt; font-weight: 700; letter-spacing: 1px; margin-bottom: 12px; }
+  .cover .subtitle { font-size: 14pt; color: #a8c4e8; margin-bottom: 8px; }
+  .cover .meta { font-size: 10pt; color: #7a99c0; margin-top: 40px; line-height: 2; }
+  .cover .divider { width: 80px; height: 3px; background: #4a9eff; margin: 20px auto; }
+  
+  .toc { page-break-after: always; padding: 40px; }
+  .toc h2 { font-size: 18pt; color: #1a2744; border-bottom: 2px solid #1a2744; padding-bottom: 8px; margin-bottom: 20px; }
+  .toc ol { list-style: none; counter-reset: toc; }
+  .toc ol li { counter-increment: toc; padding: 5px 0; border-bottom: 1px dotted #ccc; display: flex; justify-content: space-between; font-size: 10pt; }
+  .toc ol li::before { content: counter(toc) ". "; font-weight: bold; color: #1a2744; }
+  
+  .section { page-break-before: always; padding: 36px 44px; }
+  .section:first-of-type { page-break-before: avoid; }
+  
+  h2.sec-title { font-size: 16pt; color: #fff; background: #1a2744; padding: 10px 16px; margin: -36px -44px 24px -44px; letter-spacing: 0.5px; }
+  h3 { font-size: 12pt; color: #1a2744; border-left: 4px solid #4a9eff; padding-left: 10px; margin: 22px 0 10px 0; }
+  h4 { font-size: 10.5pt; color: #2c4a7a; margin: 16px 0 6px 0; font-style: italic; }
+  
+  p { margin-bottom: 9px; }
+  
+  .box { border: 1px solid #c8d8f0; border-radius: 6px; padding: 14px 18px; margin: 14px 0; background: #f5f9ff; }
+  .box.red { border-color: #e8b0b0; background: #fff5f5; }
+  .box.green { border-color: #a0d0a0; background: #f5fff5; }
+  .box.yellow { border-color: #e8d880; background: #fffdf0; }
+  .box.dark { background: #1a2744; color: #e8eef8; border-color: #1a2744; }
+  .box.dark h4 { color: #a8c4e8; }
+  
+  .box-title { font-weight: bold; font-size: 9pt; text-transform: uppercase; letter-spacing: 0.8px; color: #2c4a7a; margin-bottom: 8px; }
+  .box.red .box-title { color: #a02020; }
+  .box.green .box-title { color: #206020; }
+  .box.yellow .box-title { color: #806010; }
+  .box.dark .box-title { color: #7ab0e0; }
+  
+  ul { padding-left: 20px; margin-bottom: 10px; }
+  li { margin-bottom: 5px; }
+  ol { padding-left: 22px; margin-bottom: 10px; }
+  ol li { margin-bottom: 5px; }
+  
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 14px 0; }
+  .three-col { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; margin: 14px 0; }
+  
+  .tag { display: inline-block; background: #1a2744; color: #fff; font-size: 7.5pt; padding: 2px 7px; border-radius: 10px; margin: 2px; letter-spacing: 0.3px; }
+  .tag.red { background: #8b1a1a; }
+  .tag.green { background: #1a5a1a; }
+  .tag.blue { background: #1a4488; }
+  
+  .case-card { border: 1px solid #c8d8f0; border-radius: 6px; margin: 10px 0; overflow: hidden; }
+  .case-card .case-header { background: #1a2744; color: #fff; padding: 8px 14px; font-size: 9.5pt; font-weight: bold; }
+  .case-card .case-body { padding: 12px 14px; font-size: 9.5pt; }
+  .case-card .case-label { font-size: 8pt; color: #4a9eff; font-weight: bold; margin-bottom: 2px; }
+  
+  .step { display: flex; gap: 12px; margin: 10px 0; }
+  .step-num { flex-shrink: 0; width: 28px; height: 28px; background: #1a2744; color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 10pt; font-weight: bold; }
+  .step-body { flex: 1; padding-top: 4px; }
+  
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 9.5pt; }
+  th { background: #1a2744; color: #fff; padding: 8px 10px; text-align: left; font-weight: bold; }
+  td { padding: 7px 10px; border-bottom: 1px solid #e0e8f0; vertical-align: top; }
+  tr:nth-child(even) td { background: #f5f8fc; }
+  
+  .highlight { background: #fff3cd; padding: 1px 4px; border-radius: 3px; }
+  .bold { font-weight: bold; }
+  
+  .flow { display: flex; align-items: flex-start; gap: 4px; flex-wrap: wrap; margin: 10px 0; }
+  .flow-item { background: #e8f0ff; border: 1px solid #4a9eff; border-radius: 4px; padding: 6px 12px; font-size: 9pt; }
+  .flow-arrow { color: #4a9eff; font-size: 14pt; padding-top: 4px; }
+  
+  .warning { background: #fff3cd; border: 1px solid #ffc107; border-radius: 6px; padding: 10px 14px; margin: 10px 0; }
+  .warning::before { content: "⚠️ "; }
+  
+  @media print {
+    body { font-size: 9.5pt; }
+    .section { padding: 28px 36px; }
+    h2.sec-title { font-size: 14pt; margin: -28px -36px 20px -36px; }
+    h3 { font-size: 11pt; }
+  }
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<div class="cover">
+  <h1>ANTITRUST LAW</h1>
+  <div class="subtitle">Comprehensive Exam Study Guide</div>
+  <div class="divider"></div>
+  <p style="color:#c0d4f0; font-size:11pt;">EU &amp; Comparative Competition Law<br>University of Wrocław · LLM International &amp; European Law</p>
+  <div class="meta">
+    Lectures 1–10 · Articles 101 &amp; 102 TFEU<br>
+    Key Concepts · Case Law · Exam Technique
+  </div>
+</div>
+
+<!-- TABLE OF CONTENTS -->
+<div class="toc">
+  <h2>Contents</h2>
+  <ol>
+    <li><span>The Concept of Undertaking &amp; Scope of Competition Law</span><span>§1</span></li>
+    <li><span>Forms of Collusive Behaviour (Art. 101)</span><span>§2</span></li>
+    <li><span>Detecting Concerted Practices — Prisoner's Dilemma &amp; Stability</span><span>§3</span></li>
+    <li><span>Hardcore Restrictions &amp; Balancing (Art. 101(1)–(3))</span><span>§4</span></li>
+    <li><span>Dominant Position — Definition &amp; Categories of Abuse (Art. 102)</span><span>§5</span></li>
+    <li><span>Exploitative Abuses: Excessive &amp; Predatory Pricing</span><span>§6</span></li>
+    <li><span>Exclusionary Abuses: Tying, Bundling &amp; Loyalty Rebates</span><span>§7</span></li>
+    <li><span>Infrastructure &amp; Network Abuses: Margin Squeeze</span><span>§8</span></li>
+    <li><span>State Action, State Compulsion &amp; Non-Economic Activity</span><span>§9</span></li>
+    <li><span>Relevant Market — Product &amp; Geographic</span><span>§10</span></li>
+    <li><span>Case-Solving Framework (Exam Technique)</span><span>§11</span></li>
+    <li><span>Key Cases Digest</span><span>§12</span></li>
+  </ol>
+</div>
+
+<!-- SECTION 1 -->
+<div class="section">
+<h2 class="sec-title">§1 — The Concept of Undertaking &amp; Scope of Competition Law</h2>
+
+<h3>Definition of Undertaking</h3>
+<div class="box dark">
+  <div class="box-title">Core Definition</div>
+  <p>An <span class="highlight" style="background:#3a5a9a; color:#fff;">undertaking</span> is any entity, <strong>regardless of its legal form</strong>, that carries out <strong>economic activity</strong>, defined as offering goods or services on the market, <strong>regardless of whether for profit</strong>.</p>
+</div>
+
+<div class="two-col">
+  <div>
+    <h4>What IS economic activity</h4>
+    <ul>
+      <li>Offering goods/services on the market</li>
+      <li>Public services (transport, utilities) — even state-run</li>
+      <li>Military unit renting billboard space on its premises</li>
+      <li>Hospital renting conference rooms</li>
+      <li>Church/school charging for services</li>
+      <li>A single one-off activity qualifies</li>
+    </ul>
+  </div>
+  <div>
+    <h4>What is NOT economic activity</h4>
+    <ul>
+      <li>Functions restricted exclusively to state authority (police, military combat, judiciary, tax collection)</li>
+      <li>Activities that <em>cannot legally</em> be performed without state mandate</li>
+      <li>Social solidarity systems (e.g., compulsory national insurance with redistribution, no choice for members)</li>
+    </ul>
+  </div>
+</div>
+
+<div class="box yellow">
+  <div class="box-title">Key Principles</div>
+  <ul>
+    <li><strong>Profit not required</strong> — non-profit entities can be undertakings</li>
+    <li><strong>Legal form irrelevant</strong> — NGO, state entity, church, private company: same test</li>
+    <li><strong>Each activity assessed individually</strong> — one entity can be an undertaking for some activities but not others</li>
+    <li><strong>State can outsource state functions</strong> — outsourcing does not make a non-economic activity economic</li>
+    <li>The test is always: "is the activity offering goods/services on the market?"</li>
+  </ul>
+</div>
+
+<h3>Distinguishing State vs. Economic Activity</h3>
+<table>
+  <tr><th>Activity</th><th>Economic?</th><th>Reason</th></tr>
+  <tr><td>Police patrol</td><td>No</td><td>Restricted to state; involves public compulsion</td></tr>
+  <tr><td>State tram company</td><td>Yes</td><td>Anyone could run trams (with approval); state does it by choice</td></tr>
+  <tr><td>Air traffic control (outsourced)</td><td>No</td><td>Even outsourced, involves exclusive state powers</td></tr>
+  <tr><td>Compulsory employment service (Höfner case)</td><td>Yes</td><td>Private actors can and do provide recruitment services</td></tr>
+  <tr><td>Military unit renting land for mobile antenna</td><td>Yes (for that activity)</td><td>Offering a service on the market</td></tr>
+</table>
+</div>
+
+<!-- SECTION 2 -->
+<div class="section">
+<h2 class="sec-title">§2 — Forms of Collusive Behaviour (Article 101)</h2>
+
+<h3>Three Categories of Coordination</h3>
+
+<div class="three-col">
+  <div class="box green">
+    <div class="box-title">1. Agreements</div>
+    <p>Written or oral contracts. Paper trail exists. Easiest to detect and prove. Assessment is purely substantive.</p>
+  </div>
+  <div class="box">
+    <div class="box-title">2. Decisions of Associations</div>
+    <p>Trade/lobby groups used as coordination platform. Members coordinate via the association without direct contact. E.g., truck manufacturers sharing discount data via trade association.</p>
+  </div>
+  <div class="box red">
+    <div class="box-title">3. Concerted Practices</div>
+    <p>Everything else. No paper trail, no formalized agreement. Hardest to prove. Companies align behaviour without explicit agreement.</p>
+  </div>
+</div>
+
+<h3>The Challenge of Concerted Practices</h3>
+<p>Companies acting in concert will avoid leaving any paper trail. The problem is that parallel behaviour (e.g., all raise prices on the same day) may look like collusion but can be explained as rational independent reactions to market signals.</p>
+
+<div class="box yellow">
+  <div class="box-title">The Parallel Conduct Problem</div>
+  <p>Company A raises prices Monday. Company B raises prices Tuesday. Company C raises prices Wednesday.</p>
+  <p>Could be: <strong>collusion</strong> OR <strong>rational parallel conduct</strong> (each reacting to the others).</p>
+  <p>As long as an alternative explanation exists, the burden of proof on the claimant is not met.</p>
+</div>
+
+<h3>Tacit Collusion</h3>
+<p>Collusion where no company explicitly commits to any course of action — all simply assume the others will behave consistently. Very difficult to prove. Common in oligopolistic markets.</p>
+
+<div class="box">
+  <div class="box-title">Truck Manufacturers Case (Information Exchange)</div>
+  <p>Major truck producers shared data via trade association: production volumes, sales volumes, and <em>actual discounts</em> (not just list prices). Discounts in this market reach 80%.</p>
+  <p><strong>Pro-collusion argument:</strong> By knowing competitors' discounts, everyone will match them → customer stuck at same price level.</p>
+  <p><strong>Counter-argument:</strong> By knowing competitors' discounts, you can undercut them and win business → pro-competitive.</p>
+  <p><strong>Key question:</strong> What does the rest of the market picture say? (See §3 on stability factors.)</p>
+</div>
+</div>
+
+<!-- SECTION 3 -->
+<div class="section">
+<h2 class="sec-title">§3 — Detecting Concerted Practices: Prisoner's Dilemma &amp; Stability</h2>
+
+<h3>The Prisoner's Dilemma Applied to Cartels</h3>
+
+<table>
+  <tr><th>Scenario</th><th>Company A</th><th>Company B</th><th>Outcome</th></tr>
+  <tr><td>Both stay silent</td><td>1 year</td><td>1 year</td><td>Best collective result</td></tr>
+  <tr><td>A confesses, B silent</td><td>Goes free</td><td>20 years</td><td>Best for A individually</td></tr>
+  <tr><td>Both confess</td><td>10 years</td><td>10 years</td><td>Best for authorities</td></tr>
+</table>
+
+<div class="box green">
+  <div class="box-title">Leniency — Breaking the Cartel</div>
+  <p>The competition authority incentivises cooperation by offering <strong>reduction or elimination of fines</strong> to the first company to confess. Because cartel members don't know if others are talking, there is strong incentive to cooperate first. This is the primary enforcement tool against cartels.</p>
+  <ul>
+    <li>First to confess: 100% fine reduction possible</li>
+    <li>Later cooperators: partial reduction</li>
+    <li>Creates a race to the competition authority</li>
+  </ul>
+</div>
+
+<h3>Three Conditions for Cartel Stability</h3>
+<p>These factors help assess whether collusion is likely and sustainable. <strong>None is conclusive alone.</strong> They must be assessed together.</p>
+
+<div class="step">
+  <div class="step-num">1</div>
+  <div class="step-body">
+    <h4>Benefit from opportunistic behaviour &lt; Long-term benefit from staying</h4>
+    <p><strong>Conducive to defection:</strong> Markets with few, large-value orders (military procurement, nuclear equipment). Each single order is worth defecting for.</p>
+    <p><strong>Conducive to stability:</strong> Markets with many small transactions (convenience goods, chips). Sustaining the arrangement over time is more valuable than any single deal.</p>
+    <p><em>Example:</em> Micro-chips at 1 cent each bought in millions → many small contracts → stability. Military jet contract for 20 years → defect.</p>
+  </div>
+</div>
+
+<div class="step">
+  <div class="step-num">2</div>
+  <div class="step-body">
+    <h4>Transparency of relations</h4>
+    <p>If cartel members can detect early that a member is considering defection (via information-sharing, price monitoring, etc.), they can act before defection is complete. High transparency → stable cartel.</p>
+  </div>
+</div>
+
+<div class="step">
+  <div class="step-num">3</div>
+  <div class="step-body">
+    <h4>Credible retaliation mechanism</h4>
+    <p>Members must be able to punish a defector. Indicators:</p>
+    <ul>
+      <li>Relative size of companies (similar size → collective retaliation possible)</li>
+      <li>Supply/distribution interdependence (member A supplies input to member B → can cut supply)</li>
+      <li>Shared logistics, warehousing, distribution networks</li>
+    </ul>
+  </div>
+</div>
+
+<div class="box yellow">
+  <div class="box-title">Exam Tip: IC Integrated Circuits Case</div>
+  <p>Annual trade fair; companies share discount data and sign contracts. Very cheap chips (1 cent each), bought by a few large buyers in bulk. The market structure (few large buyers) means each bulk contract is very valuable → creates incentive to defect (like military market). This undermines cartel stability even within a high-volume market.</p>
+</div>
+</div>
+
+<!-- SECTION 4 -->
+<div class="section">
+<h2 class="sec-title">§4 — Hardcore Restrictions &amp; Balancing (Art. 101(1)–(3))</h2>
+
+<h3>Article 101(1) — The Prohibited Categories</h3>
+<div class="box red">
+  <div class="box-title">Article 101(1) TFEU — Hardcore Restrictions</div>
+  <p>Agreements/decisions/concerted practices that <strong>cannot be balanced or justified</strong>:</p>
+  <ol type="a">
+    <li>Directly or indirectly <strong>fix purchase or selling prices</strong> or any other trading conditions</li>
+    <li><strong>Limit or control</strong> production, markets, technical development, or investment</li>
+    <li><strong>Share markets</strong> or sources of supply</li>
+    <li>Apply <strong>dissimilar conditions to equivalent transactions</strong>, placing trading parties at a competitive disadvantage</li>
+    <li>Make contracts <strong>subject to supplementary obligations</strong> having no connection with the subject of the contracts</li>
+  </ol>
+</div>
+
+<div class="two-col">
+  <div class="box green">
+    <div class="box-title">✓ Article 101(3) — Exemption Conditions (ALL must be met)</div>
+    <ol>
+      <li>Contributes to improving production or distribution, or promoting technical/economic progress</li>
+      <li>Allows consumers a <strong>fair share</strong> of the resulting benefit</li>
+      <li>Restrictions must be <strong>indispensable</strong> to the objectives</li>
+      <li>Must not afford the possibility of <strong>eliminating competition</strong> on a substantial part of the market</li>
+    </ol>
+  </div>
+  <div class="box red">
+    <div class="box-title">✗ Cannot use Art. 101(3) if:</div>
+    <ul>
+      <li>Hardcore restriction present → full stop, no balancing</li>
+      <li>Positive effects on one market cannot justify a hardcore restriction in another (even if overall positive)</li>
+      <li>One company is left outside two groups → eliminates competition</li>
+    </ul>
+  </div>
+</div>
+
+<h3>Key Cases Under Art. 101</h3>
+
+<div class="case-card">
+  <div class="case-header">Elevator &amp; Escalator Manufacturers (Otis, Schindler, Kone, Thyssen)</div>
+  <div class="case-body">
+    <div class="case-label">CONDUCT</div>
+    <p>(1) Shared technical data + standardised parts → better service/parts market. (2) Market-sharing on construction projects ("I take this project, you take that one").</p>
+    <div class="case-label">ANALYSIS</div>
+    <p><strong>Market sharing (part 2):</strong> Clear hardcore restriction. End of story for that part.</p>
+    <p><strong>Technical data sharing (part 1):</strong> Pro-competitive argument — better choice of service providers. BUT: it creates market foreclosure in the product market (buyers of non-colluding brands get inferior after-sales options). The two practices are inseparable → if one part has an unjustifiable effect, the whole arrangement fails.</p>
+    <div class="case-label">LESSON</div>
+    <p>If a practice has inseparable effects across markets, and one market effect cannot be justified, the entire practice fails. Positive effects on the service market cannot save a hardcore restriction in the product market.</p>
+  </div>
+</div>
+
+<div class="case-card">
+  <div class="case-header">Airlines (Copenhagen/Stockholm) — Network Coordination</div>
+  <div class="case-body">
+    <div class="case-label">CONDUCT</div>
+    <p>Two airlines combine networks: common tickets, loyalty programme, baggage transfer, schedule coordination. Drop some direct routes; gain new indirect connections.</p>
+    <div class="case-label">MARKET DEFINITION IS DECISIVE</div>
+    <p>If each route = separate market → dropping CPH-STK direct while only one carrier remains = market sharing (hardcore). If Helsinki-London overall = the market → no change in competition on that market.</p>
+    <div class="case-label">LESSON</div>
+    <p>In aviation cases, relevant market is typically <strong>city-pair (point-to-point)</strong> from the <em>demand side</em>. Even if there are large transfer passenger flows, if even some passengers fly point-to-point, that market exists. Existence of a hardcore restriction on even one city-pair route sinks the whole arrangement.</p>
+  </div>
+</div>
+
+<div class="case-card">
+  <div class="case-header">Treuhandanstalt (Troy Fund) — State Entity as Cartel Facilitator</div>
+  <div class="case-body">
+    <div class="case-label">CONDUCT</div>
+    <p>Post-reunification German state asset manager sat buyers of industrial machinery down and told them: "There are 10 machines, 5 of you — agree among yourselves who buys how many." Organised market-sharing without being a market participant itself.</p>
+    <div class="case-label">LESSON</div>
+    <p>A <strong>non-market participant can facilitate a hardcore restriction</strong>. The companies sitting at the table committed market-sharing. The enabling body (trade association, government entity, third-party platform) can also be liable even though it has no business interest in the outcome.</p>
+  </div>
+</div>
+
+<div class="case-card">
+  <div class="case-header">Van Eycke — State-Endorsed Private Price-Fixing</div>
+  <div class="case-body">
+    <div class="case-label">CONDUCT</div>
+    <p>Belgian legislation allowed private professional bodies (ASPA) to formulate pricing rules for spirits, which then received legal force through state approval. Rules influenced commercial conditions across the market.</p>
+    <div class="case-label">KEY POINT</div>
+    <p>No state compulsion: the rules were not adopted purely by the state — private sector participants <em>participated</em> in their development. Therefore, the undertakings cannot rely on state compulsion as a defence. They brought it upon themselves. The price-fixing was committed by the undertakings, not mandated by the state.</p>
+  </div>
+</div>
+</div>
+
+<!-- SECTION 5 -->
+<div class="section">
+<h2 class="sec-title">§5 — Dominant Position: Definition &amp; Categories of Abuse (Art. 102)</h2>
+
+<h3>Definition of Dominant Position</h3>
+<div class="box dark">
+  <div class="box-title">Legal Definition</div>
+  <p>A dominant position is the <strong>ability to act on the market unilaterally</strong> — without needing to take into account the reactions of competitors or customers.</p>
+</div>
+
+<div class="two-col">
+  <div>
+    <h4>What dominance is</h4>
+    <ul>
+      <li>NOT defined by a specific market share percentage</li>
+      <li>~75% market share: practically always dominant</li>
+      <li>~20% can be dominant in fragmented markets</li>
+      <li>Always relative to the number and strength of other players</li>
+      <li>Can be individual (single dominant company) OR collective (group acting together)</li>
+    </ul>
+  </div>
+  <div>
+    <h4>What dominance is NOT</h4>
+    <ul>
+      <li>Not the same as monopoly (monopoly always = dominant; dominant ≠ monopoly)</li>
+      <li>Not prohibited per se — having a dominant position is legal</li>
+      <li>Not automatically abusive</li>
+      <li>Often reflects superior business performance or inherited market position (post-communist utilities)</li>
+    </ul>
+  </div>
+</div>
+
+<h3>Categories of Abuse</h3>
+
+<div class="two-col">
+  <div class="box red">
+    <div class="box-title">Exclusionary Practices</div>
+    <p>Aimed at <strong>competitors</strong>. Goal: exclude them from the market or keep them marginalised.</p>
+    <ul>
+      <li>Predatory pricing</li>
+      <li>Margin squeeze</li>
+      <li>Tying and bundling</li>
+      <li>Loyalty rebates (if exclusionary)</li>
+      <li>Refusal to deal</li>
+      <li>Market foreclosure via selective discount</li>
+    </ul>
+  </div>
+  <div class="box red">
+    <div class="box-title">Exploitative Practices</div>
+    <p>Aimed at <strong>customers/clients</strong>. Goal: extract maximum value because clients have nowhere to go.</p>
+    <ul>
+      <li>Excessive pricing</li>
+      <li>Unfair trading conditions</li>
+      <li>Discriminatory pricing between equivalent transactions</li>
+    </ul>
+  </div>
+</div>
+
+<div class="box yellow">
+  <div class="box-title">⚠️ Critical Rule: No Exceptions for Art. 102 Abuses</div>
+  <p>Unlike Art. 101(3), <strong>there is no balancing act and no exemption</strong> for abuses of dominant position. If abuse is proven, it is automatically prohibited. Period. This is why the distinction between Art. 101 and Art. 102 matters enormously: the same conduct may be justifiable under 101(3) but automatically prohibited under 102.</p>
+</div>
+
+<h3>Collective Dominant Position</h3>
+<p>A group of undertakings, none of which individually holds a dominant position, can collectively hold dominance when taken together they achieve a critical mass of market power and act in concert. Assessment follows the same collusion analysis from Art. 101 — you must prove they are acting together. If collective dominance is established, Art. 102 applies to their joint conduct.</p>
+</div>
+
+<!-- SECTION 6 -->
+<div class="section">
+<h2 class="sec-title">§6 — Exploitative Abuses: Excessive &amp; Predatory Pricing</h2>
+
+<h3>Excessive Pricing</h3>
+<div class="box">
+  <div class="box-title">Definition</div>
+  <p>A price is excessive when it <strong>has no reasonable relationship to the economic value</strong> of the product/service — i.e., the markup is disproportionate to the cost of production.</p>
+</div>
+
+<div class="case-card">
+  <div class="case-header">Greek Airports — General Aviation Charges</div>
+  <div class="case-body">
+    <div class="case-label">FACTS</div>
+    <p>New operator (Fraport) took over Greek airports and overnight raised charges for general aviation (small planes, pilot schools, parachute clubs) by 600–800%. Competitor airlines wanted rid of them as they blocked runways.</p>
+    <div class="case-label">RELEVANT MARKET</div>
+    <p><strong>Single airport</strong> = the relevant market. Pilot schools cannot move to another airport 200 km away. Business is tied to that location. Without geographic flexibility, the airport has monopoly power over those users.</p>
+    <div class="case-label">EXCLUSIONARY OR EXPLOITATIVE?</div>
+    <p>Exclusionary — purpose was to drive out general aviation to improve conditions for mainline airlines. 600% is not what you charge to extract more money from customers you want to keep; it is what you charge to eliminate them.</p>
+    <div class="case-label">THE ENFORCEMENT PROBLEM</div>
+    <p>Excessive pricing is theoretically recognisable but practically unenforceable. To say "this price is excessive," you must say what price is not excessive — which immediately introduces price control. This paradox makes excessive pricing one of the rarest successful claims in competition law.</p>
+  </div>
+</div>
+
+<div class="box yellow">
+  <div class="box-title">The Sorites Paradox of Excessive Pricing</div>
+  <p>If 600% is excessive, is 550%? Is 300%? Is 150%? Wherever you draw the line is arbitrary. And once you draw it, everyone will price up to that line. Price regulation results. This is why authorities almost never pursue excessive pricing despite recognising it exists.</p>
+</div>
+
+<div class="case-card">
+  <div class="case-header">Helsingborg Ferry Terminal — Port Charges (Art. 102 Excessive Pricing)</div>
+  <div class="case-body">
+    <p>Port operator charged ferry operators significantly more than comparable ports. Ferry operators dependent on this terminal (only crossing point without a multi-hour detour). Case: <strong>prices were high but authority could not establish what a non-excessive price would be</strong> without introducing price control. Complaint dismissed. Illustrates the enforcement paradox.</p>
+  </div>
+</div>
+
+<h3>Predatory Pricing</h3>
+<div class="box red">
+  <div class="box-title">Definition</div>
+  <p>A dominant company lowers prices dramatically around the time a new competitor enters, with the objective of driving the entrant out. The dominant company can sustain losses longer than the entrant. Once the entrant exits, prices return to supra-competitive levels.</p>
+</div>
+
+<p><strong>Predation vs. Dumping:</strong> Dumping = prices below cost (predatory by definition). Predatory pricing = prices close enough to the entrant's to split demand and inflict losses, but may still be above cost. The key is the <em>pattern</em> and <em>timing</em>, not a single price snapshot.</p>
+
+<div class="two-col">
+  <div class="box">
+    <div class="box-title">Key Detection Requirement</div>
+    <p>Predation can only be detected by observing a <strong>price trend over time</strong> correlated with the entrant's market entry. A snapshot of prices at any one moment shows nothing. Continuous market monitoring is essential.</p>
+  </div>
+  <div class="box">
+    <div class="box-title">Capacity Dumping</div>
+    <p>A variant: the dominant company <strong>increases production/capacity</strong> beyond demand when a new entrant arrives. This floods the market, reduces everyone's sales, and imposes losses on all. Dominant company outlasts the entrant because it has more capital reserves.</p>
+    <p><em>Example:</em> Ryanair adding a flight immediately before and after EasyJet's Dublin-Liverpool service to "sandwich" the competitor.</p>
+  </div>
+</div>
+
+<div class="case-card">
+  <div class="case-header">Ryanair / EasyJet — Dublin Routes</div>
+  <div class="case-body">
+    <p>EasyJet enters Dublin-UK routes. Ryanair: (1) lowered prices on overlapping routes, (2) added extra frequency to "sandwich" EasyJet's schedule. Creates demand split → everyone loses money → Ryanair with bigger reserves outlasts EasyJet. In absence of dominant position: perfectly legal healthy competition. With dominant position: exclusionary abuse.</p>
+  </div>
+</div>
+</div>
+
+<!-- SECTION 7 -->
+<div class="section">
+<h2 class="sec-title">§7 — Exclusionary Abuses: Tying, Bundling &amp; Loyalty Rebates</h2>
+
+<h3>Tying and Bundling</h3>
+<div class="box">
+  <div class="box-title">Mechanism</div>
+  <p>Company has <strong>dominant position in Product A</strong>. Does not have dominance in Product B. Leverages dominance in A to gain advantage in B by forcing customers who buy A to also buy B.</p>
+</div>
+
+<div class="box dark">
+  <div class="box-title">Key Test: Separate Demand</div>
+  <p>Products are considered <strong>separate</strong> (and therefore cannot be bundled by a dominant company) if there is <strong>separate, independent demand</strong> for each product. The existence of separate demand is the deciding criterion.</p>
+  <p>If no separate demand → naturally one product → bundling acceptable.</p>
+</div>
+
+<div class="case-card">
+  <div class="case-header">Hilti — Nail Guns, Nails &amp; Cartridges</div>
+  <div class="case-body">
+    <div class="case-label">DOMINANT POSITION IN</div><p>Nail guns (invented the market; near-monopoly initially)</p>
+    <div class="case-label">NO DOMINANT POSITION IN</div><p>Nails and cartridges (many third-party producers)</p>
+    <div class="case-label">CONDUCT</div>
+    <p>(1) Told distributors: stop selling third-party nails, or we stop supplying you with our guns and give you discounts for compliance. (2) Told customers: using third-party nails voids your warranty.</p>
+    <div class="case-label">DEFENDANT'S ARGUMENT</div>
+    <p>"Third-party nails are inferior and unsafe. We are protecting consumers."</p>
+    <div class="case-label">RULING / LESSON</div>
+    <p>Even if true, <strong>it is not the company's role to act as market regulator</strong>. If third-party products are legally sold and meet safety standards, the dominant company cannot unilaterally restrict their use. Both practices = abusive.</p>
+  </div>
+</div>
+
+<div class="case-card">
+  <div class="case-header">Microsoft — Windows &amp; Internet Explorer</div>
+  <div class="case-body">
+    <p>Microsoft pre-installed Internet Explorer with Windows. Browsers at the time were paid products (Netscape). By bundling a free browser, Microsoft shut out competitors. Separate demand existed: consumers actively purchased browsers separately.</p>
+    <p><strong>Consequence:</strong> Now when setting up Windows, users see a browser choice screen. This is the direct result of the competition case.</p>
+    <p><strong>Irony:</strong> Microsoft dominated by tying, but then lost the browser market anyway because IE was such a poor product — dominance acquired by abuse is fragile.</p>
+  </div>
+</div>
+
+<div class="case-card">
+  <div class="case-header">Tetra Pak — Carton Machinery &amp; Packaging</div>
+  <div class="case-body">
+    <p>Tetra Pak: monopoly in aseptic carton filling machines. No dominance in packaging materials (many suppliers). Strategy: "We'll give you free maintenance/training/upgrades — if you use only our packaging." Framed as an incentive (carrot), not a threat (stick). Analysis: same coercive effect. Carrot or stick, leveraging machine dominance to capture the packaging market = abuse.</p>
+  </div>
+</div>
+
+<h3>Loyalty Rebates / Selective Discounts</h3>
+
+<div class="two-col">
+  <div class="box">
+    <div class="box-title">When Discounts Are Legal</div>
+    <ul>
+      <li>Non-dominant companies: virtually always fine</li>
+      <li>Volume-based (sell more, get more): generally fine even for dominant companies</li>
+      <li>Transparent, objective, non-discriminatory criteria: better argument</li>
+    </ul>
+  </div>
+  <div class="box red">
+    <div class="box-title">When Discounts Are Abusive (Art. 102)</div>
+    <ul>
+      <li>Criteria set specifically so only one company qualifies (Ryanair 185-seat threshold)</li>
+      <li>Discounts contingent on exclusivity or limits on use of competitors</li>
+      <li>Used to prevent customers from switching to new entrants</li>
+      <li>Discount is predatory in effect (drives entrant prices below competition)</li>
+    </ul>
+  </div>
+</div>
+
+<div class="case-card">
+  <div class="case-header">Ryanair — Airport Loyalty Rebates (Regional Airport Case)</div>
+  <div class="case-body">
+    <p>Regional airport offered discounts for airlines with planes of 185+ seats. Ryanair: 187 seats. EasyJet Airbus A220: 184 seats. The 185-seat threshold was set deliberately so only Ryanair qualifies. Result: Ryanair gets a discount, EasyJet doesn't → higher effective cost for EasyJet → market foreclosure.</p>
+    <p><strong>Airport's defence:</strong> "Criteria are objective and transparent — anyone with 185+ seat plane gets the discount." Newer EU case law is more nuanced: if all facts show only one company could realistically ever meet the criteria, the formal neutrality is not sufficient.</p>
+  </div>
+</div>
+
+<div class="case-card">
+  <div class="case-header">British Airways — Travel Agency Commissions</div>
+  <div class="case-body">
+    <p>BA paid travel agents progressively higher commissions as ticket sales exceeded thresholds. Agents incentivised to maximise BA ticket sales → minimise competitor sales by implication. Without dominant position: perfectly legal business incentive. With dominant position (BA had dominant position in the UK air ticket market): the mechanism forecloses the market to competitors.</p>
+  </div>
+</div>
+
+<div class="case-card">
+  <div class="case-header">Algida Ice Cream — Fridge Tying</div>
+  <div class="case-body">
+    <p>Algida provided free refrigerators to small shops with condition: 80%+ of display space for Algida products. In supermarkets: no problem, space for multiple fridges. In small convenience stores (target market): only room for one fridge. Either take the free Algida fridge (and be bound) or buy your own (incurring cost). Outcome: captive shelf space. Exclusionary abuse.</p>
+  </div>
+</div>
+
+<div class="case-card">
+  <div class="case-header">Swedish Snus (SNUS) — Labelling Requirements</div>
+  <div class="case-body">
+    <p>Dominant SNUS company gave free refrigerators to bars/restaurants. Condition: all products displayed in the fridge must follow specific labelling guidelines (where to place price, logo, taste descriptor). Technically allowed competitors' products in the fridge. Case took 20 years and was never satisfactorily resolved — <strong>because there was no clear mechanism of harm</strong>. Neither dominant company's profits nor competitors' losses could be causally linked to the labelling rule. This case illustrates: abuse of dominant position normally involves a <em>clear economic mechanism</em>. If you cannot identify the mechanism, there may be no abuse.</p>
+  </div>
+</div>
+</div>
+
+<!-- SECTION 8 -->
+<div class="section">
+<h2 class="sec-title">§8 — Infrastructure &amp; Network Abuses: Margin Squeeze</h2>
+
+<h3>The Margin Squeeze</h3>
+<div class="box">
+  <div class="box-title">Context</div>
+  <p>Occurs in <strong>network industries</strong> (telecoms, railways, electricity, water) where access to physical infrastructure is essential for competing. Former state monopolies often own this infrastructure and simultaneously provide services over it.</p>
+</div>
+
+<div class="flow">
+  <div class="flow-item">Dominant firm owns infrastructure</div>
+  <div class="flow-arrow">→</div>
+  <div class="flow-item">Competitor must use infrastructure to operate</div>
+  <div class="flow-arrow">→</div>
+  <div class="flow-item">Dominant firm raises infrastructure access price</div>
+  <div class="flow-arrow">→</div>
+  <div class="flow-item">Competitor's costs rise; margin is squeezed</div>
+  <div class="flow-arrow">→</div>
+  <div class="flow-item">Competitor cannot invest or expand → exits</div>
+</div>
+
+<h3>Natural Monopoly</h3>
+<p>Infrastructure that <strong>cannot be replicated</strong> (physical impossibility or prohibitive cost) has natural monopoly status. No one can build a second railway network or second electricity grid. Therefore, access conditions are critical for competition downstream.</p>
+
+<h3>Unbundling — The Regulatory Solution</h3>
+<div class="box green">
+  <div class="box-title">Unbundling (Structural Separation)</div>
+  <p>Organisationally separating the <strong>infrastructure owner</strong> from the <strong>service provider</strong> using that infrastructure. When the infrastructure owner no longer has a stake in downstream competition, their interest becomes maximising access revenue → they want to let everyone in up to capacity.</p>
+  <ul>
+    <li>Must be combined with transparent, non-discriminatory access pricing (controlled by regulator)</li>
+    <li>Same access price for everyone, including the former dominant operator's successor</li>
+    <li>Removes the economic motivation for margin squeeze</li>
+  </ul>
+  <p>Applied to: European telecoms, railway operation, electricity markets.</p>
+</div>
+
+<h3>Slot Allocation — A Related Problem</h3>
+<p>Airport landing slots = time-limited access to infrastructure. Dominant incumbent airlines can hold more slots than needed, blocking competitors from entry without "doing" anything obviously exclusionary. Hard to distinguish between: (a) legitimate use of legitimately obtained slots, and (b) blocking access artificially.</p>
+
+<h3>Refusal to Deal &amp; Indispensability</h3>
+<div class="box">
+  <div class="box-title">Indispensability Test</div>
+  <p>A dominant company's refusal to grant access to its infrastructure/platform/network is abusive only if that access is <strong>indispensable</strong> for carrying out the activity — meaning there is no viable alternative.</p>
+  <p>This is a <strong>very high bar</strong>: "helpful" or "significantly beneficial" does not equal "indispensable." There must be no realistic substitute or self-provision option.</p>
+</div>
+
+<h3>Superior Bargaining Power</h3>
+<p>Concept in some jurisdictions (Germany, Poland for food sector): a company need not have overall market dominance to abuse its position. If in a specific bilateral trading relationship, one party is entirely dependent on the other (e.g., apple farmer selling only to one local supermarket chain), there may be a power imbalance actionable as "superior bargaining power." Not universal — controversial and absent from pure EU competition law. In Poland: applies specifically to agri-food sector.</p>
+
+<div class="case-card">
+  <div class="case-header">Augsburg Airways / Lufthansa — 100% Client Dependency</div>
+  <div class="case-body">
+    <p>Augsburg Airways operated 8 aircraft entirely on behalf of Lufthansa under codeshare. 100% of revenue from one client. Lufthansa cancelled. Augsburg had no brand, no direct sales capability, no other routes — filed for bankruptcy within 24 hours.</p>
+    <p><strong>Lesson:</strong> Superior bargaining power claims are weakened when the dependent party made a business decision to concentrate all operations with one client. The thin line between "abuse of power" and "consequences of imprudent business strategy" is central to the doctrine.</p>
+  </div>
+</div>
+</div>
+
+<!-- SECTION 9 -->
+<div class="section">
+<h2 class="sec-title">§9 — State Action, State Compulsion &amp; Non-Economic Activity</h2>
+
+<h3>State Compulsion Doctrine</h3>
+<div class="box">
+  <div class="box-title">Definition</div>
+  <p>An undertaking is <strong>not liable</strong> for a violation of competition rules if the specific anticompetitive behaviour was <strong>mandated by the state</strong> and the undertaking had <strong>no legal room for manoeuvre</strong> — i.e., the only legally permissible course of action was the anticompetitive one.</p>
+  <p>In that case, <strong>the state bears liability</strong>, not the undertaking.</p>
+</div>
+
+<div class="two-col">
+  <div class="box green">
+    <div class="box-title">State Compulsion Applies When</div>
+    <ul>
+      <li>State unilaterally adopts a law mandating the conduct</li>
+      <li>Undertaking has zero room to comply with competition law</li>
+      <li>The only legal course of action is the anticompetitive one</li>
+    </ul>
+  </div>
+  <div class="box red">
+    <div class="box-title">State Compulsion Does NOT Apply When</div>
+    <ul>
+      <li>Undertakings participated in drafting the rules (Van Eycke)</li>
+      <li>Undertakings could have proposed alternative approaches</li>
+      <li>State "incentivised" but did not mandate the behaviour</li>
+      <li>Undertakings had any room for manoeuvre whatsoever</li>
+    </ul>
+  </div>
+</div>
+
+<h3>State Decides Where Markets Exist</h3>
+<div class="box yellow">
+  <div class="box-title">Key Principle: No Right to a Competitive Market</div>
+  <p>If the state decides from the outset that there will be only one operator in a given sector (e.g., a public employment agency), there is no "abuse" — because the state has the right to determine whether a market exists at all. There is no automatic right to market entry or competition.</p>
+  <p>Abuse would arise only if: (a) the state permits multiple operators in principle but then uses discriminatory barriers against specific entrants, or (b) the single operator goes beyond the state mandate to harm competitors through its own conduct.</p>
+</div>
+
+<div class="case-card">
+  <div class="case-header">Höfner Case (C-41/90) — Compulsory Employment Agencies</div>
+  <div class="case-body">
+    <p>German law gave the Bundesanstalt für Arbeit a legal monopoly on employment placement. Private recruitment firms were banned. Court held the Bundesanstalt was nonetheless an <strong>undertaking</strong> because placement services can be, and in other contexts are, provided by private entities. The activity is economic (offered on the market). The monopoly might constitute an abuse of dominant position if the agency could not meet demand — creating a situation where the exclusive right was in breach of Art. 102 taken together with Art. 106 TFEU.</p>
+  </div>
+</div>
+</div>
+
+<!-- SECTION 10 -->
+<div class="section">
+<h2 class="sec-title">§10 — Relevant Market: Product &amp; Geographic</h2>
+
+<h3>Why Relevant Market Is Always First</h3>
+<div class="box red">
+  <div class="box-title">Market Definition is Threshold Issue</div>
+  <p>Without establishing the relevant market, it is impossible to assess: (1) whether a dominant position exists, or (2) whether an agreement has an effect on trade between member states. <strong>Get the market wrong → the entire case collapses.</strong></p>
+</div>
+
+<h3>Product Market — Demand-Side Substitutability</h3>
+<div class="box dark">
+  <div class="box-title">SSNIP Test (Small but Significant Non-transitory Increase in Price)</div>
+  <p>A product B is in the same market as product A if, when the price of A increases by 5–10%, a sufficient number of consumers switch to B that the price increase becomes unprofitable. The key question is always: <strong>from the consumer's perspective, are these products substitutable?</strong></p>
+</div>
+
+<table>
+  <tr><th>Situation</th><th>Market Definition Implication</th></tr>
+  <tr><td>Beer only vs. all alcohol</td><td>If consumers don't switch to vodka when beer gets more expensive → beer is a separate market → dominance easier to establish</td></tr>
+  <tr><td>Single route in aviation (CPH-LHR)</td><td>If consumer wants to fly CPH-LHR, adding more Helsinki connections is irrelevant → each route = separate market</td></tr>
+  <tr><td>Long product life (elevators, 20 years)</td><td>Always creates connected aftermarket: spare parts + maintenance. Must define multiple markets.</td></tr>
+  <tr><td>Small shops in local area</td><td>Geographic market may be local: farmer selling to the only local supermarket → that supermarket = dominant buyer for that transaction</td></tr>
+  <tr><td>Airport for general aviation</td><td>Single airport = relevant market if businesses cannot feasibly relocate (pilot school tied to its location)</td></tr>
+</table>
+
+<h3>Geographic Market</h3>
+<p>The geographic market comprises the area where the conditions of competition are homogeneous and sufficiently different from neighbouring areas. Key factors:</p>
+<ul>
+  <li>Ability of suppliers to relocate</li>
+  <li>Ability of buyers to source from elsewhere</li>
+  <li>Transport costs relative to product value</li>
+  <li>Regulatory differences between territories</li>
+</ul>
+
+<div class="case-card">
+  <div class="case-header">Bayer — Pharma Parallel Trade Spain/UK</div>
+  <div class="case-body">
+    <p>Bayer's medicine priced low in Spain, high in UK. Spanish pharmacists buying extra and re-selling to UK. Bayer tried to stop this by limiting supply to Spanish pharmacies or conditioning supply on no-resale terms.</p>
+    <p><strong>Geographic market:</strong> Spain + UK = one market, because the goods were freely substitutable and were actively being traded across the border.</p>
+    <p><strong>Art. 101 or 102?</strong> Looked like a bilateral agreement (Bayer + Spanish pharmacies). But if Spanish pharmacies had no real choice (dominant supplier, no alternatives), the "agreement" was really a unilateral act of the dominant company. Therefore → Art. 102 analysis.</p>
+    <p><strong>Nature:</strong> Exploitative toward UK customers (forced to pay higher prices) AND restricting parallel trade (harming EU internal market integration).</p>
+  </div>
+</div>
+
+<div class="case-card">
+  <div class="case-header">Beer Case — Belgium, Netherlands, France (Diageo type)</div>
+  <div class="case-body">
+    <p>Beer priced lower in Netherlands than Belgium. Dutch distributors buy cheap and re-sell to Belgium. Dominant brewery limits supply to Dutch distributors to prevent this arbitrage.</p>
+    <p><strong>Market definition debate:</strong> Beer only (→ dominance likely) vs. all alcohol (→ no dominance). Argument for wider market: substitutability between beer, wine, cider. Counter: different consumption patterns, price points, occasions.</p>
+    <p><strong>Art. 101 or 102?</strong> If Dutch distributors had no choice but to accept Diageo's conditions (dominant), it's Art. 102 unilateral abuse. If they participated willingly → Art. 101 collusion.</p>
+    <p><strong>Abuse:</strong> Limiting supply to prevent lawful parallel trade = limiting market to prejudice of consumers (Art. 102(b)) + possible discriminatory conditions (Art. 102(c)).</p>
+  </div>
+</div>
+</div>
+
+<!-- SECTION 11 -->
+<div class="section">
+<h2 class="sec-title">§11 — Case-Solving Framework (Exam Technique)</h2>
+
+<h3>Universal Step-by-Step Method</h3>
+
+<div class="step">
+  <div class="step-num">1</div>
+  <div class="step-body">
+    <h4>Identify the parties and their activities</h4>
+    <p>Who is doing what? Who is upstream (producers), who is downstream (distributors/retailers)? Are they competitors (horizontal) or in a supply chain (vertical)?</p>
+  </div>
+</div>
+
+<div class="step">
+  <div class="step-num">2</div>
+  <div class="step-body">
+    <h4>Define the relevant market (product + geographic)</h4>
+    <p>This is almost always the most decisive step. Use demand-side substitutability. Multiple markets possible (e.g., product + aftermarket). Getting this wrong invalidates the rest of the analysis.</p>
+  </div>
+</div>
+
+<div class="step">
+  <div class="step-num">3</div>
+  <div class="step-body">
+    <h4>Choose the applicable provision: Art. 101 or Art. 102?</h4>
+    <div class="two-col">
+      <div class="box">
+        <div class="box-title">Art. 101 if:</div>
+        <ul>
+          <li>More than one undertaking involved</li>
+          <li>All parties benefiting and could refuse</li>
+          <li>Concerted action on horizontal or vertical basis</li>
+        </ul>
+      </div>
+      <div class="box">
+        <div class="box-title">Art. 102 if:</div>
+        <ul>
+          <li>Single dominant undertaking OR collective dominance</li>
+          <li>Partner had no real ability to refuse (forced into "agreement")</li>
+          <li>Unilateral conduct imposing conditions</li>
+        </ul>
+      </div>
+    </div>
+    <p class="warning">Same conduct can fall under both. Art. 102 is the final safety net — no exceptions. Always check 102 even if 101 clears the conduct.</p>
+  </div>
+</div>
+
+<div class="step">
+  <div class="step-num">4</div>
+  <div class="step-body">
+    <h4>If Art. 101: Check for hardcore restrictions first</h4>
+    <p>Price fixing, market sharing, production limits, dissimilar conditions, supplementary obligations = automatic prohibition. If none present → proceed to 101(3) balancing.</p>
+  </div>
+</div>
+
+<div class="step">
+  <div class="step-num">5</div>
+  <div class="step-body">
+    <h4>If Art. 102: Identify type of abuse</h4>
+    <p>Exclusionary (aimed at competitors) or exploitative (aimed at customers)? Follow the money: who benefits from the conduct and at whose expense?</p>
+    <p>If abuse established → automatically prohibited, no exceptions.</p>
+  </div>
+</div>
+
+<div class="step">
+  <div class="step-num">6</div>
+  <div class="step-body">
+    <h4>Consider defences and alternative arguments</h4>
+    <ul>
+      <li>Non-economic activity (activity restricted to state authority)?</li>
+      <li>State compulsion (no room for manoeuvre)?</li>
+      <li>Objective justification (safety, quality — but must be proportionate)?</li>
+      <li>Art. 101(3) exemption (if no hardcore restriction)?</li>
+    </ul>
+  </div>
+</div>
+
+<h3>"Follow the Money" Shortcut</h3>
+<div class="box yellow">
+  <div class="box-title">Quick Assessment Tool</div>
+  <p>For any competition case, ask: <strong>Who is worse off and why?</strong></p>
+  <ul>
+    <li>Competitors being harmed → exclusionary abuse (Art. 102) or market foreclosure (Art. 101)</li>
+    <li>Customers paying more/getting less → exploitative abuse (Art. 102)</li>
+    <li>Everyone in the group benefiting → likely collusion (Art. 101), not unilateral</li>
+    <li>Dominant company unilaterally gains while partner has no benefit → Art. 102 unilateral conduct</li>
+  </ul>
+</div>
+
+<h3>Art. 101 vs. Art. 102 — Key Differences Table</h3>
+<table>
+  <tr><th>Feature</th><th>Art. 101</th><th>Art. 102</th></tr>
+  <tr><td>Who?</td><td>2+ undertakings acting in concert</td><td>1 dominant undertaking (or collective dominance)</td></tr>
+  <tr><td>Exceptions/Balancing</td><td>Yes — Art. 101(3) allows exemptions if no hardcore restriction</td><td>No — abuse = automatically prohibited</td></tr>
+  <tr><td>Hardcore restrictions</td><td>Yes — certain practices never exempt</td><td>N/A — all abuses prohibited</td></tr>
+  <tr><td>Non-dominant company</td><td>Can infringe Art. 101 regardless of market share</td><td>Cannot infringe Art. 102 without dominant position</td></tr>
+  <tr><td>Same conduct</td><td>May be permitted under 101(3)</td><td>If abusive under 102 → prohibited regardless of 101 outcome</td></tr>
+  <tr><td>Strategic implication</td><td>Argue Art. 101 to preserve chance of exemption</td><td>Argue Art. 101 only if definitely non-dominant</td></tr>
+</table>
+</div>
+
+<!-- SECTION 12 -->
+<div class="section">
+<h2 class="sec-title">§12 — Key Cases Digest</h2>
+
+<h3>Cases from Class</h3>
+
+<table>
+  <tr><th>Case / Parties</th><th>Issue</th><th>Key Holding/Lesson</th></tr>
+  <tr><td><strong>Elevator/Escalator (Otis etc.)</strong></td><td>Technical data sharing + market allocation of construction projects</td><td>Market sharing = hardcore restriction. Technical cooperation inseparable from market sharing → both unlawful. Positive effects on service market cannot save a hardcore restriction in the product market.</td></tr>
+  <tr><td><strong>Airline Network (SAS/Maersk type)</strong></td><td>Codeshare, dropped routes, common loyalty</td><td>Relevant market = city-pair. Dropping one direct route while leaving one carrier = market sharing if that route is a separate market. Positive network effects cannot justify hardcore restriction on even one market.</td></tr>
+  <tr><td><strong>Truck Manufacturers (Info Exchange)</strong></td><td>Trade association sharing production/sales/discount data</td><td>Knowing competitors' discounts = can either fix prices (anti-competitive) OR undercut them (pro-competitive). Must look at all stability factors. Actual outcome depended on market context.</td></tr>
+  <tr><td><strong>IC Chips (Annual Trade Fair)</strong></td><td>Annual data exchange + contract signing</td><td>Few large buyers → each contract is high value → incentive to defect. Undermines cartel stability. No clear evidence of stable collusion.</td></tr>
+  <tr><td><strong>Treuhandanstalt</strong></td><td>State asset manager coordinated market sharing by buyers</td><td>Non-market participant can facilitate hardcore restriction. No business motive needed to be liable. Undertakings at the table = liable.</td></tr>
+  <tr><td><strong>Van Eycke (Belgian Spirits)</strong></td><td>State-approved but privately drafted pricing rules</td><td>No state compulsion: private actors participated in drafting. Undertakings are liable for the resulting price-fixing. State compulsion is black-and-white: 0 room for manoeuvre required.</td></tr>
+  <tr><td><strong>Bayer — Spain/UK Pharma</strong></td><td>Supply restrictions to prevent parallel trade</td><td>Looked like bilateral agreement but pharmacies had no real choice (dominant supplier) → unilateral action of dominant company → Art. 102. Exploitative to UK customers; restricts internal market integration.</td></tr>
+  <tr><td><strong>Hilti (Nail Guns)</strong></td><td>Tying gun + nails; voiding warranty for third-party nails</td><td>Separate demand = separate products. Safety defence rejected: not the company's role to act as regulator. Both practices = exclusionary abuse.</td></tr>
+  <tr><td><strong>Microsoft — IE</strong></td><td>Browser pre-installed with OS</td><td>Separate demand for browsers existed. Pre-installation = illegal bundling. Consequence: mandatory browser choice screen on Windows.</td></tr>
+  <tr><td><strong>Tetra Pak</strong></td><td>Free maintenance/upgrades if use only Tetra Pak packaging</td><td>Carrot (incentive) = same anticompetitive effect as stick (threat). Leveraging machine monopoly into packaging market = abuse.</td></tr>
+  <tr><td><strong>Algida Ice Cream</strong></td><td>Free fridge with condition: 80% Algida products</td><td>No physical space for second fridge in small shops = exclusive shelf space. Foreclosure of competitor ice cream brands = abuse.</td></tr>
+  <tr><td><strong>British Airways — Commissions</strong></td><td>Progressive performance bonuses for travel agents selling BA tickets</td><td>Without dominant position: legal incentive scheme. With dominant position: forecloses market to competitor airlines via travel agents.</td></tr>
+  <tr><td><strong>Greek Airports — General Aviation</strong></td><td>600–800% price increase overnight for small aircraft</td><td>Airport = relevant market (businesses cannot relocate). Exclusionary abuse (drive out general aviation to help mainline airlines). Excessive pricing = practically unenforced due to price control paradox.</td></tr>
+  <tr><td><strong>Ryanair — Dublin/UK routes</strong></td><td>Price cutting + capacity dumping on EasyJet-overlapping routes</td><td>Textbook predatory pricing + capacity dumping. Detection requires observing price trend at time of new entry, not price snapshot.</td></tr>
+  <tr><td><strong>Helsingborg Ferry Terminal</strong></td><td>Port charges significantly above comparable ports</td><td>Excessive pricing recognisable in principle but no enforcement possible without specifying acceptable price level = price control. Complaint dismissed.</td></tr>
+  <tr><td><strong>Swedish SNUS</strong></td><td>Labelling requirements on products in free fridges</td><td>20-year case resolved inconclusive because no identifiable mechanism of harm. Key lesson: abuse requires an identifiable economic mechanism of harm.</td></tr>
+  <tr><td><strong>Steam / Valve (Geo-blocking)</strong></td><td>Activation keys blocked by geography; different national prices</td><td>Market sharing = hardcore restriction (EU, this market). Game publishers co-defendants because they benefited from price segmentation → Art. 101 (not Art. 102, since both sides benefit). Geo-blocking = market sharing = automatic prohibition.</td></tr>
+  <tr><td><strong>Pierre Fabre (Cosmetics)</strong></td><td>Selective distribution: pharmacy-only, no online sales</td><td>With non-dominant company + no discriminatory/anti-competitive criteria → vertical restraint permissible. Would be collusive only if pharmacies and producer agreed to exclude online rivals. Art. 102 requires dominant position first.</td></tr>
+  <tr><td><strong>British Sugar / Napier Brown</strong></td><td>Upstream producer + downstream distributor; vertical structure</td><td>Three markets: production, distribution, retail. Conduct by dominant upstream player using intrapress subsidiary to exclude competitor distributor = collective dominant position + exclusionary abuse.</td></tr>
+  <tr><td><strong>Apple App Store</strong></td><td>Vetting apps + mandatory Apple payment processor for in-app purchases</td><td>Ongoing/unresolved. Key issues: (1) vetting discretion = potential arbitrary exclusion; (2) payment processing tying. Apple's defence: transparent, non-discriminatory rules applicable to all. Outcome pending.</td></tr>
+  <tr><td><strong>Lepin Bricks (Lego knockoff)</strong></td><td>Lepin Club, full-line forcing, rebates, product placement</td><td>Dominant position assumed. If all distributors benefit → Art. 101 collusion → Art. 101(3) balancing possible (pro-consumer: better access, full range). If distributors had no choice → Art. 102 → no exemption → foreclosure of competing brick brands.</td></tr>
+  <tr><td><strong>Belgian Book Distribution (Brusila)</strong></td><td>4 publishers owning Brusila distributor; cut off competitor distributor Intrapress</td><td>Collective dominant position (51% combined). Publishers held meeting to coordinate response = evidence of concerted action. Refusal to supply = exclusionary abuse (Art. 102). Art. 101 market-sharing argument weaker (didn't technically divide market). State compulsion: none.</td></tr>
+  <tr><td><strong>Diageo Beer (Belgium/Netherlands)</strong></td><td>Supply limits to prevent parallel trade from NL to BE</td><td>Geographic market = BE + NL (substitutable goods, active trade). Dominant position → Art. 102. Limiting supply = limits market to prejudice of consumers (Art. 102(b)) + discriminatory conditions (Art. 102(c)).</td></tr>
+  <tr><td><strong>Höfner (C-41/90)</strong></td><td>State employment agency with legal monopoly</td><td>Even state entities carrying out economic activity = undertakings. Legal monopoly + inability to meet demand = potential abuse under Art. 102 + Art. 106 TFEU.</td></tr>
+</table>
+
+<h3>Fast Reference: Defences That Work vs. Don't Work</h3>
+<div class="two-col">
+  <div class="box green">
+    <div class="box-title">Defences That Can Work</div>
+    <ul>
+      <li>Non-economic activity (true state function restricted by law)</li>
+      <li>State compulsion (0% room for manoeuvre)</li>
+      <li>Art. 101(3) (no hardcore restriction + 4 criteria met)</li>
+      <li>Objective justification for Art. 102 (safety/quality, but proportionate + not company's role to regulate)</li>
+      <li>No dominant position (if market defined broadly enough)</li>
+      <li>Conduct was unilateral of dominant company (turns 101 issue into 102 issue → may or may not be abuse)</li>
+    </ul>
+  </div>
+  <div class="box red">
+    <div class="box-title">Defences That Do NOT Work</div>
+    <ul>
+      <li>"We are a public company / state-owned" (irrelevant if economic activity)</li>
+      <li>"We didn't earn a profit" (profit not required for economic activity)</li>
+      <li>"The state incentivised us" (partial — must be full compulsion)</li>
+      <li>"Third-party products are inferior" to justify tying (not the company's role to regulate)</li>
+      <li>"Our criteria are formally neutral" if only one company realistically qualifies</li>
+      <li>Art. 101(3) to justify a hardcore restriction</li>
+      <li>Any argument to justify Art. 102 abuse (no exceptions)</li>
+    </ul>
+  </div>
+</div>
+</div>
+
+<!-- FINAL NOTE -->
+<div style="padding: 30px 44px; background: #1a2744; color: #a8c4e8; page-break-before: always;">
+  <h2 style="color: #fff; font-size: 14pt; margin-bottom: 16px;">Exam Strategy Reminders</h2>
+  <ol style="color: #c8d8f8; line-height: 2; padding-left: 20px;">
+    <li><strong>Always start with relevant market</strong> — getting it right changes everything downstream.</li>
+    <li><strong>Art. 102 is the last safety net</strong> — check it even if Art. 101 analysis is inconclusive.</li>
+    <li><strong>No exceptions for abuses</strong> — once you identify abuse under Art. 102, it's done.</li>
+    <li><strong>Follow the money</strong> — who benefits and who is harmed identifies the mechanism.</li>
+    <li><strong>Identify the mechanism</strong> — if you can't explain how the conduct causes harm, there may be no abuse (SNUS case).</li>
+    <li><strong>Distinguish 101 from 102</strong> by asking: could the "partner" have refused? If yes → collusion (101). If no → unilateral dominant conduct (102).</li>
+    <li><strong>Hardcore restrictions</strong> → end of 101 balancing exercise immediately.</li>
+    <li><strong>State compulsion</strong> → must be absolute (zero room to manoeuvre). Participation in rule-making = no compulsion.</li>
+    <li><strong>Separate demand test for tying</strong> — if consumers independently buy the two products, they are separate products.</li>
+    <li><strong>Long product life</strong> → always look for aftermarkets (parts + services).</li>
+  </ol>
+</div>
+
+</body>
+</html>
